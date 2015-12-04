@@ -1,7 +1,8 @@
 module Main where
 
-import Prelude hiding (gcd)
 import System.IO
+import Data.List.Split (splitOn)
+import Prelude hiding (gcd)
 
 gcd :: Int -> Int -> Int
 gcd i j
@@ -9,5 +10,21 @@ gcd i j
   | otherwise = gcd j k
   where k = i `mod` j
 
-main = do file <- getContents
-          putStr file
+gcdChecker [a, b, c]
+  | g == (read c :: Int) = "OK"
+  | otherwise = show g
+    where g = gcd (read a :: Int) (read b :: Int)
+
+gcdHelper :: [String] -> [String]
+gcdHelper [] = []
+gcdHelper (x:xs) = gcdChecker (splitOn " " x) : gcdHelper xs
+
+
+getInputCount :: IO Int
+getInputCount = readLn
+
+main :: IO ()
+main = do
+  lineCount <- getInputCount
+  lines <- fmap (take lineCount . lines) getContents
+  mapM_ putStrLn (gcdHelper lines)
