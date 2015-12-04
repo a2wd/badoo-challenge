@@ -29,7 +29,7 @@ namespace Example
                     if (length == -1)
                     {
                         if (!Int32.TryParse(s, out length))
-                            throw new Exception("Wrong input format");
+                            throw new Exception("Wrong input format.");
                         else
                             s = stdIn.ReadLine();
                     }
