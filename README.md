@@ -14,4 +14,4 @@ Having initially experimented with node & Java, it would seem faster and more co
 in ECMAScript, however this could be due to unfamiliarity with Java, though the extra compilation step definitely increases time
 taken to find a solution.
 
-A further attempt with C# proved to be even slower and more troublesome to implement.
+A further attempt with C# proved to be even slower and more troublesome to implement, while the example with Haskell proved to be slower more complicated and ultimately much more enjoyable.
